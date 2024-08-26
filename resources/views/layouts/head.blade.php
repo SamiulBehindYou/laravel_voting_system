@@ -13,9 +13,7 @@
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/product/">
-
-
-
+    <link rel="shortcut icon" href="{{ asset('admin') }}/images/favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
     <link href="{{ asset('fontend') }}/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -192,7 +190,7 @@
           <li class="nav-item"><a class="nav-link" href="#">Slot 2</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Slot 3</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Slot 4</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('custom_login') }}">Admin</a></li>
 
         </ul>
       </div>
