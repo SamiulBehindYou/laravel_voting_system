@@ -57,7 +57,6 @@
                       <div class="mt-3">
                         <button type="submit" class="btn btn-primary mr-2 mb-2 mb-md-0 text-white">Login</button>
                       </div>
-                      <a href="{{ route('custom_register') }}" class="d-block mt-3 text-muted">Not a user? Sign up</a>
                     </form>
                   </div>
                 </div>

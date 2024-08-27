@@ -44,6 +44,12 @@
               <span class="link-title">Dashboard</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('custom_register') }}" class="nav-link">
+              <i class="link-icon" data-feather="user-plus"></i>
+              <span class="link-title">Register new!</span>
+            </a>
+          </li>
           <li class="nav-item nav-category">Mange vote</li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
@@ -64,8 +70,14 @@
           </li>
           <li class="nav-item">
             <a href="{{ route('vote.create_vote') }}" class="nav-link">
-                <i class="link-icon" data-feather="edit"></i>
+                <i class="link-icon" data-feather="file-plus"></i>
               <span class="link-title">Create vote</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('see_votes') }}" class="nav-link">
+                <i class="link-icon" data-feather="file-text"></i>
+              <span class="link-title">See votes</span>
             </a>
           </li>
           <li class="nav-item">

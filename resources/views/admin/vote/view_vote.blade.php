@@ -14,11 +14,27 @@
                     <tbody>
                         <tr>
                             <td>Title</td>
-                            <td>skfasf</td>
+                            <td>{{ $vote->title }}</td>
                         </tr>
                         <tr>
                             <td>Description</td>
-                            <td>fjaklsfkalsjfklasjflksalf fjafksalkfjlksajflks fkasjflksajflksjfl</td>
+                            <td>{{ $vote->description }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ $vote->option1 }}</td>
+                            <td>Active</td>
+                        </tr>
+                        <tr>
+                            <td>{{ $vote->option2 }}</td>
+                            <td>Active</td>
+                        </tr>
+                        <tr>
+                            <td>{{ $vote->option3 }}</td>
+                            <td>Active</td>
+                        </tr>
+                        <tr>
+                            <td>{{ $vote->option4 }}</td>
+                            <td>Active</td>
                         </tr>
                         <tr>
                             <td>Total vote/Vote left</td>

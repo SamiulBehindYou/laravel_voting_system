@@ -20,15 +20,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($votes as $sl=>$vote)
                         <tr>
-                            <td>d</td>
-                            <td>d</td>
-                            <td>d</td>
+                            <td>{{ $sl+1 }}</td>
+                            <td>{{ $vote->title }}</td>
+                            <td>{{ $vote->description }}</td>
                             <td>
-                                <a class="btn btn-outline-success btn-sm" href="#">View</a>
-                                <a class="btn btn-outline-danger btn-sm" href="#">Delete</a>
+                                <a class="btn btn-outline-success btn-sm" href="{{ route('view_vote', $vote->id) }}">View</a>
+                                <a class="btn btn-outline-danger btn-sm" href="{{ route('delete_vote', $vote->id) }}">Delete</a>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
