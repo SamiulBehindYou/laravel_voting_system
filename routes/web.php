@@ -6,10 +6,16 @@ use App\Http\Controllers\VoterController;
 use App\Http\Controllers\DashController;
 use Illuminate\Support\Facades\Route;
 
+
+$link = uniqid();
+// Public Routes Below
+// All landing page action control by DashController
 Route::get('/', [DashController::class, 'dashboard']);
+Route::post('add_vote', [DashController::class, 'add_vote'])->name('add_vote');
 
 Route::view('custom_login', 'admin.auth.login')->name('custom_login');
 
+// Authorize Routes below,
 Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

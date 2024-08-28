@@ -12,4 +12,12 @@ class DashController extends Controller
 
         return view('welcome', compact('votes'));
     }
+
+    public function add_vote(Request $request){
+        $request->validate([
+            'voter_id' => 'required',
+        ]);
+        
+
+    }
 }

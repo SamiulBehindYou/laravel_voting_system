@@ -35,12 +35,12 @@
         <p class="lead">{{ $vote->description }}</p>
       </div>
       <div class="bg-body-tertiary shadow-sm mx-auto text-info" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-        <form action="" method="POST">
+        <form action="{{ route('add_vote') }}" method="POST">
             @csrf
-            <input type="hidden" name="id" value="{{ $vote->id }}">
+            <input type="hidden" name="vote_id" value="{{ $vote->id }}">
             <div class="mb-3 p-2">
                 <label class="form-label">Enter voter id:</label>
-                <input type="number" class="form-control">
+                <input type="number" name="voter_id" class="form-control">
             </div>
             <div class="mb-3 p-2">
                 <label class="form-label">Chosse option:</label>
@@ -69,7 +69,7 @@
           <p class="lead">{{ $vote->description }}</p>
         </div>
         <div class="bg-body-tertiary shadow-sm mx-auto text-info" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-          <form action="" method="POST">
+          <form action="{{ route('add_vote') }}" method="POST">
               @csrf
               <input type="hidden" name="id" value="{{ $vote->id }}">
               <div class="mb-3 p-2">
@@ -90,9 +90,9 @@
               </div>
           </form>
         </div>
-      </div>
-      @break
-      @endif
+    </div>
+    @break
+    @endif
     @endforeach
     </div>
 
@@ -110,7 +110,7 @@
           <p class="lead">{{ $vote->description }}</p>
         </div>
         <div class="bg-body-tertiary shadow-sm mx-auto text-info" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-          <form action="" method="POST">
+          <form action="{{ route('add_vote') }}" method="POST">
               @csrf
               <input type="hidden" name="id" value="{{ $vote->id }}">
               <div class="mb-3 p-2">
@@ -131,9 +131,9 @@
               </div>
           </form>
         </div>
-      </div>
-      @break
-      @endif
+    </div>
+    @break
+    @endif
     @endforeach
     @foreach ($votes as $vote)
     @if ($vote->slot == 4)
@@ -144,7 +144,7 @@
           <p class="lead">{{ $vote->description }}</p>
         </div>
         <div class="bg-body-tertiary shadow-sm mx-auto text-info" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-          <form action="" method="POST">
+          <form action="{{ route('add_vote') }}" method="POST">
               @csrf
               <input type="hidden" name="id" value="{{ $vote->id }}">
               <div class="mb-3 p-2">
