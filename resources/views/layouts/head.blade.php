@@ -16,6 +16,7 @@
     <link rel="shortcut icon" href="{{ asset('admin') }}/images/favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
+
     <link href="{{ asset('fontend') }}/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -186,10 +187,11 @@
           <li class="nav-item"><a class="nav-link" href="#">
             <svg class="bi" width="24" height="24"><use xlink:href="#aperture"/></svg>
           </a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Slot 1</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Slot 2</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Slot 3</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Slot 4</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Active slots:</a></li>
+          @foreach ($votes as $vote)
+          <li class="nav-item"><a class="nav-link" href="#slot-1">Slot {{ $vote->slot }}</a></li>
+          @endforeach
+
           <li class="nav-item"><a class="nav-link" href="{{ route('custom_login') }}">Admin</a></li>
 
         </ul>

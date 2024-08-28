@@ -44,12 +44,14 @@
               <span class="link-title">Dashboard</span>
             </a>
           </li>
+          @if (Auth::user()->status == 0)
           <li class="nav-item">
             <a href="{{ route('custom_register') }}" class="nav-link">
               <i class="link-icon" data-feather="user-plus"></i>
               <span class="link-title">Register new!</span>
             </a>
           </li>
+          @endif
           <li class="nav-item nav-category">Mange vote</li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
@@ -78,6 +80,12 @@
             <a href="{{ route('see_votes') }}" class="nav-link">
                 <i class="link-icon" data-feather="file-text"></i>
               <span class="link-title">See votes</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('slot') }}" class="nav-link">
+                <i class="link-icon" data-feather="grid"></i>
+              <span class="link-title">Slot</span>
             </a>
           </li>
           <li class="nav-item">

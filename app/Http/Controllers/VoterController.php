@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Voter;
 use App\Models\Vote;
+use App\Models\Slot;
 
 class VoterController extends Controller
 {
@@ -66,5 +67,31 @@ class VoterController extends Controller
 
     public function delete_vote(){
         //
+    }
+
+    public function slot(){
+        $votes = Vote::where('active_status', 0)->get();
+        $slots = Slot::where('status', 0)->get();
+        return view('admin.vote.slot', compact('votes', 'slots'));
+    }
+
+    public function bind_slot(Request $request){
+        Vote::where('id', $request->vote)->update([
+            'slot' => $request->slot
+        ]);
+        Slot::where('id', $request->slot)->update([
+            'status' => 1
+        ]);
+        return back()->with('success_slot', 'Slot binded successfully!');
+    }
+
+    public function unbind_slot($id){
+        $vote = Vote::findOrFail($id);
+        $slot = Slot::findOrFail($vote->slot);
+        $slot->status = 0;
+        $slot->save();
+        $vote->slot = null;
+        $vote->save();
+        return back()->with('success_unbind', 'Slot unbinded successfully!');
     }
 }

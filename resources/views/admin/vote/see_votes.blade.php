@@ -16,6 +16,7 @@
                             <th>#</th>
                             <th>Title</th>
                             <th>Description</th>
+                            <th>Slot</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -25,6 +26,7 @@
                             <td>{{ $sl+1 }}</td>
                             <td>{{ $vote->title }}</td>
                             <td>{{ $vote->description }}</td>
+                            <td>{{ $vote->slot }}</td>
                             <td>
                                 <a class="btn btn-outline-success btn-sm" href="{{ route('view_vote', $vote->id) }}">View</a>
                                 <a class="btn btn-outline-danger btn-sm" href="{{ route('delete_vote', $vote->id) }}">Delete</a>

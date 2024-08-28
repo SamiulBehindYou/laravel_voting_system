@@ -11,4 +11,10 @@ class UserController extends Controller
         $users = User::all();
         return view('admin.dashboard', compact('users'));
     }
+
+    public function delete_user($id){
+        $user = User::findOrFail($id);
+        $user->delete();
+        return back()->with('success_delete', 'User deleted successfully!');
+    }
 }
