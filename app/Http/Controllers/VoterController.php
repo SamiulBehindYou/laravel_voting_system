@@ -56,21 +56,27 @@ class VoterController extends Controller
     }
 
     public function see_votes(){
-        $votes = Vote::all();
+        $votes = Vote::where('complete_status', 0)->get();
         return view('admin.vote.see_votes', compact('votes'));
     }
 
     public function view_vote($id){
         $vote = Vote::findOrFail($id);
-        return view('admin.vote.view_vote', compact('vote'));
+        $total_vote = $vote->option1vote + $vote->option2vote + $vote->option3vote + $vote->option4vote;
+        $voter = Voter::all();
+        $total_voter = count($voter);
+        $vote_left = $total_voter - $total_vote;
+        return view('admin.vote.view_vote', compact('vote', 'total_vote', 'vote_left'));
     }
 
-    public function delete_vote(){
-        //
+    public function delete_vote($id){
+        $vote = Vote::findOrFail($id);
+        $vote->delete();
+        return back()->with('success_delete', 'Vote deleted successfully!');
     }
 
     public function slot(){
-        $votes = Vote::where('active_status', 0)->get();
+        $votes = Vote::where('active_status', 0)->where('complete_status', 0)->get();
         $slots = Slot::where('status', 0)->get();
         return view('admin.vote.slot', compact('votes', 'slots'));
     }
@@ -93,5 +99,10 @@ class VoterController extends Controller
         $vote->slot = null;
         $vote->save();
         return back()->with('success_unbind', 'Slot unbinded successfully!');
+    }
+    public function completed_votes(){
+        $votes = Vote::where('complete_status', 1)->get();
+
+        return view('admin.vote.completed_votes', compact('votes'));
     }
 }

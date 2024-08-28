@@ -35,9 +35,9 @@
                             <td>
                                 @if (Auth::user()->id != $user->id)
                                 @if($user->status == 0)
-                                <a class="btn btn-outline-primary btn-sm" href="#">Admin</a>
+                                <a class="btn btn-outline-primary btn-sm" href="{{ route('change_access', $user->id) }}">Admin</a>
                                 @else
-                                <a class="btn btn-outline-info btn-sm" href="#">Modarator</a>
+                                <a class="btn btn-outline-info btn-sm" href="{{ route('change_access', $user->id) }}">Modarator</a>
                                 @endif
                                 @else
                                 <p class="text-success">You</p>

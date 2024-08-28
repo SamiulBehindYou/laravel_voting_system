@@ -15,11 +15,11 @@
 
                         <tbody>
                             <tr>
-                                <td>Title</td>
+                                <td>Vote Title</td>
                                 <td>{{ $vote->title }}</td>
                             </tr>
                             <tr>
-                                <td>Description</td>
+                                <td>Vote Description</td>
                                 <td>{{ $vote->description }}</td>
                             </tr>
                             <tr>
@@ -39,8 +39,12 @@
                                 <td>{{ $vote->option4 }}</td>
                             </tr>
                             <tr>
-                                <td>Total vote/Vote left</td>
-                                <td>40/10</td>
+                                <td>Total vote</td>
+                                <td>{{ $total_vote }}</td>
+                            </tr>
+                            <tr>
+                                <td>Vote left</td>
+                                <td>{{ $vote_left }}</td>
                             </tr>
                             <tr>
                                 <td>Slot</td>
@@ -49,15 +53,12 @@
                                     {{ $vote->slot }}
                                     <a href="{{ route('unbind_slot', $vote->id) }}" class="ml-3 btn btn-outline-danger">Unbind</a>
                                     @else
-                                    <a href="{{ route('slot') }}" class="btn btn-outline-facebook">Assign a slot</a>
+                                        @if ($vote->complete_status == 1)
+                                        {{ 'Vote Completed' }}
+                                        @else
+                                        <a href="{{ route('slot') }}" class="btn btn-outline-facebook">Assign a slot</a>
+                                        @endif
                                     @endif
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Status</td>
-                                <td>
-                                    <a href="" class="btn btn-outline-success">Active</a>
-                                    <small>click to change status</small>
                                 </td>
                             </tr>
                         </tbody>

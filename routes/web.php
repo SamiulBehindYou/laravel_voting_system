@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 $link = uniqid();
 // Public Routes Below
 // All landing page action control by DashController
-Route::get('/', [DashController::class, 'dashboard']);
+Route::get('/', [DashController::class, 'dashboard'])->name('landing_page');
 Route::post('add_vote', [DashController::class, 'add_vote'])->name('add_vote');
 
 Route::view('custom_login', 'admin.auth.login')->name('custom_login');
@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     // User Routes
+    Route::get('/change_access/{id}', [UserController::class, 'change_access'])->name('change_access');
     Route::get('/delete_user/{id}', [UserController::class, 'delete_user'])->name('delete_user');
     // Voters Routes
     Route::post('/add_voter', [VoterController::class, 'add_voter'])->name('add_voter');
@@ -32,6 +33,7 @@ Route::middleware('auth')->group(function () {
     // Vote Routes
     Route::post('/create_vote', [VoterController::class, 'create_vote'])->name('create_vote');
     Route::get('see_votes', [VoterController::class, 'see_votes'])->name('see_votes');
+    Route::get('completed_votes', [VoterController::class, 'completed_votes'])->name('completed_votes');
     Route::get('/view_vote/{id}', [VoterController::class, 'view_vote'])->name('view_vote');
     Route::get('/delete_vote/{id}', [VoterController::class, 'delete_vote'])->name('delete_vote');
     // Slot Routes

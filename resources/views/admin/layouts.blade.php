@@ -89,11 +89,17 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('history') }}" class="nav-link">
-              <i class="link-icon" data-feather="rotate-ccw"></i>
-              <span class="link-title">History</span>
+            <a href="{{ route('completed_votes') }}" class="nav-link">
+              <i class="link-icon" data-feather="award"></i>
+              <span class="link-title">Completed Vote</span>
             </a>
           </li>
+          {{-- <li class="nav-item">
+            <a href="{{ route('history') }}" class="nav-link">
+              <i class="link-icon" data-feather="activity"></i>
+              <span class="link-title">Activity</span>
+            </a>
+          </li> --}}
 
 
           </li>
