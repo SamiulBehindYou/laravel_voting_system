@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/create_vote', [VoterController::class, 'create_vote'])->name('create_vote');
     Route::get('see_votes', [VoterController::class, 'see_votes'])->name('see_votes');
     Route::get('completed_votes', [VoterController::class, 'completed_votes'])->name('completed_votes');
+    Route::get('/view_completed_vote/{id}', [VoterController::class, 'view_completed_vote'])->name('view_completed_vote');
     Route::get('/view_vote/{id}', [VoterController::class, 'view_vote'])->name('view_vote');
     Route::get('/delete_vote/{id}', [VoterController::class, 'delete_vote'])->name('delete_vote');
     // Slot Routes

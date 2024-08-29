@@ -51,8 +51,7 @@
                                 @endif
                             </td>
                             <td>
-                                <a class="btn btn-outline-primary btn-sm" href="#">View</a>
-                                <a class="btn btn-outline-danger btn-sm" href="#">Delete</a>
+                                <a class="btn btn-outline-primary btn-sm" href="{{ route('view_completed_vote', $vote->id) }}">View</a>
                             </td>
                         </tr>
                         @endforeach

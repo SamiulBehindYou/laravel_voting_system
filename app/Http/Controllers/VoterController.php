@@ -68,6 +68,13 @@ class VoterController extends Controller
         $vote_left = $total_voter - $total_vote;
         return view('admin.vote.view_vote', compact('vote', 'total_vote', 'vote_left'));
     }
+    public function view_completed_vote($id){
+        $vote = Vote::findOrFail($id);
+        $total_vote = $vote->option1vote + $vote->option2vote + $vote->option3vote + $vote->option4vote;
+        $voter = Voter::all();
+        $total_voter = count($voter);
+        return view('admin.vote.view_completed_vote', compact('vote', 'total_vote'));
+    }
 
     public function delete_vote($id){
         $vote = Vote::findOrFail($id);
