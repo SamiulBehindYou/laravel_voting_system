@@ -14,6 +14,8 @@ Route::get('/', [DashController::class, 'dashboard'])->name('landing_page');
 Route::post('add_vote', [DashController::class, 'add_vote'])->name('add_vote');
 
 Route::view('custom_login', 'admin.auth.login')->name('custom_login');
+Route::view('test', 'test');
+Route::post('/testlogin', [UserController::class, 'testlogin'])->name('testlogin');
 
 // Authorize Routes below,
 Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');

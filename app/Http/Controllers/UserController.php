@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -32,5 +34,14 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
         return back()->with('success_delete', 'User deleted successfully!');
+    }
+
+    public function testlogin(Request $request){
+        if(Hash::check($request->password, Auth::user()->password)){
+            //Ok section
+        }else{
+            //Not ok section
+        }
+
     }
 }

@@ -7,6 +7,7 @@ use App\Models\Voter;
 use App\Models\Vote;
 use App\Models\Slot;
 
+
 class VoterController extends Controller
 {
     public function add_voter(Request $request){
