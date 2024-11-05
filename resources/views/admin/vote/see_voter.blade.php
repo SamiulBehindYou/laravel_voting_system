@@ -25,7 +25,7 @@
                     <tbody>
 
 
-                        @foreach ($voters as $sl=>$voter)
+                        @forelse ($voters as $sl=>$voter)
                         <tr>
                             <td>{{ $sl+1 }}</td>
                             <td>{{ $voter->name }}</td>
@@ -39,7 +39,11 @@
                                 </form>
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                        <tr>
+                            <td colspan="5"><h5>No vote found!</h5></td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

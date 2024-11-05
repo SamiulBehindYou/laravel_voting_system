@@ -20,7 +20,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($votes as $sl=>$vote)
+                        @forelse ($votes as $sl=>$vote)
                         <tr>
                             <td>{{ $sl }}</td>
                             <td>{{ $vote->title }}</td>
@@ -54,7 +54,11 @@
                                 <a class="btn btn-outline-primary btn-sm" href="{{ route('view_completed_vote', $vote->id) }}">View</a>
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                        <tr>
+                            <td colspan="5"><h5>No vote found!</h5></td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

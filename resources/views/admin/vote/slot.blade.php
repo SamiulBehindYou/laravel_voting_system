@@ -21,6 +21,7 @@
                                 <option value="{{ $vote->id }}">{{ $vote->title }}</option>
                                 @endif
                                 @endforeach
+                                <option value="">Select Vote to bind</option>
                             </select>
                         </div>
                         <div class="mb-3">

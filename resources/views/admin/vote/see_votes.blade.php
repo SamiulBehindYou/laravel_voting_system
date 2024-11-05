@@ -24,7 +24,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($votes as $sl=>$vote)
+                        @forelse ($votes as $sl=>$vote)
                         {{-- @if ($vote->complete_status == 0) --}}
                         <tr>
                             <td>{{ $sl+1 }}</td>
@@ -41,7 +41,11 @@
                             </td>
                         </tr>
                         {{-- @endif --}}
-                        @endforeach
+                        @empty
+                        <tr>
+                            <td colspan="5"><h5>No vote found!</h5></td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
